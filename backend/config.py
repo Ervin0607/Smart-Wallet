@@ -1,6 +1,6 @@
 DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "MyNewPass",
+    "host": "",
+    "user": "",
+    "password": "",
     "database": "smartwalletdb"
 }
