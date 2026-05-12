@@ -26,26 +26,33 @@ To run this application locally, ensure you have Python 3.x and MySQL Server ins
 ```bash
 git clone [https://github.com/YourUsername/Smart-Wallet-Budget-Guardian.git](https://github.com/YourUsername/Smart-Wallet-Budget-Guardian.git)
 cd Smart-Wallet-Budget-Guardian
+```
 
 ### 2. Set Up the Virtual Environment
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-4. Database Configuration
+### 4. Database Configuration
 
-    Open your MySQL command line or workbench.
+1. Open your MySQL command line or workbench.
+2. Create a new database (e.g., smart_wallet_db).
+3. Execute the provided SQL schema file to set up the tables, relationships, and custom triggers.
 
-    Create a new database (e.g., smart_wallet_db).
-
-    Execute the provided SQL schema file to set up the tables, relationships, and custom triggers.
-
+```bash
 SOURCE database_schema.sql;
+```
 
-Update the database connection credentials in your Flask application (usually in an .env file or config.py).
+Update the database connection credentials in your Flask application (in config.py).
 
-5. Run the Application
+### 5. Run the Application
+```bash
 flask run
+```
 The application will be accessible at http://localhost:5000 in your web browser.
