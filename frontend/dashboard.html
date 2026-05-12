@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SmartWallet Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="budget.html">Budgets</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Dashboard</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Wallet Balance</h3>
+                <p id="balance" class="balance-text">Loading...</p>
+            </div>
+
+            <div class="card">
+                <h3>Bank Accounts</h3>
+                <div id="bankAccounts">Loading...</div>
+            </div>
+
+            <div class="card">
+                <h3>Budget Status</h3>
+                <div id="budgetsList">Loading...</div>
+            </div>
+
+            <div class="card">
+                <h3>Recent Alerts</h3>
+                <ul id="alerts"></ul>
+            </div>
+
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3>Recent Transactions</h3>
+                <table id="recentTxns">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

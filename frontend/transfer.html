@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer | Smart Wallet</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="budget.html">Budgets</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="transfer.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1 class = "center-title">Payment Gateway</h1>
+
+        <div class="cards" style="display: flex; justify-content: flex-start;">
+            <div class="card" style="width: 100%; max-width: 500px; margin: 0 auto;">
+                <h3>Transfer Details</h3>
+                
+                <form id="paymentForm">
+                    <label class="gateway-label" for="accId">Recipient Wallet / Acc ID</label>
+                    <input type="text" id="accId" class="gateway-input" placeholder="e.g. USER-49281">
+
+                    <label class="gateway-label" for="paymentVia">Pay Via</label>
+                    <select id="paymentVia" class="gateway-input">
+                        <option value="wallet">Wallet Balance</option>
+                        <option value="bank">Bank Balance</option>
+                        <option value="crypto">Crypto Balance</option>
+                    </select>
+
+                    <div id="cryptoSelectionGroup" style="display: none;">
+                        <label class="gateway-label" for="cryptoAssetId">From Asset</label>
+                        <select id="cryptoAssetId" class="gateway-input">
+                            <option value="">Select a token...</option>
+                        </select>
+                    </div>
+
+                    <label class="gateway-label" for="categoryId">Category</label>
+                    <select id="categoryId" class="gateway-input">
+                        <option value="7">Transfer / Send Money</option>
+                        <option value="1">Food & Dining</option>
+                        <option value="2">Rent & Utilities</option>
+                        <option value="3">Shopping</option>
+                        <option value="4">Entertainment</option>
+                    </select>
+
+                    <label class="gateway-label" for="amount">Amount (INR)</label>
+                    <input type="number" id="amount" class="gateway-input" placeholder="₹ 0.00">
+
+                    <button type="button" id="payNowBtn" class="gateway-btn">Proceed to Pay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="authModalOverlay" class="modal-overlay">
+    <div class="auth-modal">
+        <h3>Security Check</h3>
+        <p id="modalAmountText">Please confirm your identity to send ₹0.00</p>
+        
+        <form id="authForm">
+            <input type="password" id="authPassword" class="gateway-input" placeholder="Enter your password" style="text-align: center; letter-spacing: 3px;">
+            <button type="button" id="confirmPayBtn" class="gateway-btn">Verify & Pay</button>
+        </form>
+        
+        <a href="#" id="cancelTransferBtn" class="cancel-link">Cancel Transfer</a>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/transfer.js"></script>
+
+</body>
+</html>

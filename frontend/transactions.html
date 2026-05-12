@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Transactions</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Transactions</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="budget.html">Budgets</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Transactions</h1>
+
+        <div class="card" style="grid-column: 1 / -1;">
+            <h3 style="margin-top: 0; color: #A3AED0; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px; margin-bottom: 20px;">
+                Transaction History
+            </h3>
+
+            <table id="txnTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Medium</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/transactions.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

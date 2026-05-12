@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Manage Budgets</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+    /* Input Styles matching the light theme */
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; margin-bottom: 8px; color: #A3AED0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+    .form-control { width: 100%; padding: 14px; background: #F8F9FD; border: 1px solid #E2E8F0; color: #2B3674; border-radius: 12px; box-sizing: border-box; outline: none; transition: all 0.3s; font-family: inherit; }
+    .form-control:focus { border-color: #4C6FFF; box-shadow: 0 0 0 3px rgba(76, 111, 255, 0.15); background: #fff; }
+    .btn { padding: 14px 20px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.2s; font-family: inherit; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-create { background: linear-gradient(135deg, #4C6FFF 0%, #3B5AF1 100%); color: #fff; width: 100%; box-shadow: 0 8px 16px rgba(76, 111, 255, 0.25); }
+    .btn-edit { background: linear-gradient(135deg, #FFB547 0%, #FF9020 100%); color: #fff; padding: 8px 14px; font-size: 0.8em; margin-right: 5px; box-shadow: 0 4px 8px rgba(255, 144, 32, 0.2); }
+    .btn-delete { background: linear-gradient(135deg, #FF4C4C 0%, #E63946 100%); color: white; padding: 8px 14px; font-size: 0.8em; box-shadow: 0 4px 8px rgba(255, 76, 76, 0.2); }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="budget.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Budgets</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Manage Budgets</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Create New Budget</h3>
+                <div class="input-group">
+                    <label>Limit Amount (INR)</label>
+                    <input id="limitAmount" type="number" class="form-control" placeholder="10000.00">
+                </div>
+                <div class="input-group">
+                    <label>Start Date</label>
+                    <input id="startDate" type="date" class="form-control">
+                </div>
+                <div class="input-group">
+                    <label>End Date</label>
+                    <input id="endDate" type="date" class="form-control">
+                </div>
+                <button class="btn btn-create" onclick="createBudget()">Create Budget</button>
+            </div>
+
+            <div class="card" style="flex: 1; min-width: 500px;">
+                <h3>Active Budgets</h3>
+                <table id="budgetTable">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Limit</th>
+                            <th>Spent</th>
+                            <th>Period</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/budget.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

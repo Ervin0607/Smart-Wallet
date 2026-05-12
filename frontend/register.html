@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SmartWallet - Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-card">
+        <h2>Create Account</h2>
+        <input id="regName" type="text" class="form-control" placeholder="Full Name">
+        <input id="regEmail" type="email" class="form-control" placeholder="Email Address">
+        <input id="regPhone" type="text" class="form-control" placeholder="Phone Number">
+        <input id="regAccount" type="text" class="form-control" placeholder="Bank Account Number (e.g. ACC2001)">
+        <input id="regPassword" type="password" class="form-control" placeholder="Create Password">
+
+        <button id="registerBtn" class="btn">Register</button>
+        <p id="regError" style="color: #ff4c4c; margin-top: 15px; font-size: 0.9em;"></p>
+
+        <a href="login.html" class="auth-link">Already have an account? Login here.</a>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

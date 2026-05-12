@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crypto Portfolio</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+    /* Refined Input Styles */
+    .input-group { margin-bottom: 20px; }
+    .input-group label { display: block; margin-bottom: 8px; color: #A3AED0; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;}
+    .form-control { width: 100%; padding: 14px; background: #F8F9FD; border: 1px solid #E2E8F0; color: #2B3674; border-radius: 12px; box-sizing: border-box; outline: none; transition: all 0.3s; font-family: inherit; }
+    .form-control:focus { border-color: #4C6FFF; box-shadow: 0 0 0 3px rgba(76, 111, 255, 0.15); background: #fff; }
+    .btn { padding: 14px 20px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.2s; font-family: inherit; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-buy { background: linear-gradient(135deg, #4C6FFF 0%, #3B5AF1 100%); color: #fff; width: 100%; box-shadow: 0 8px 16px rgba(76, 111, 255, 0.25); }
+    .btn-sell { background: linear-gradient(135deg, #FF4C4C 0%, #E63946 100%); color: white; width: 100%; box-shadow: 0 8px 16px rgba(255, 76, 76, 0.25); }
+    #buyTotalCost, #sellTotalRev { font-size: 1.2em; font-weight: bold; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="crypto.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Crypto</a>
+        <a href="budget.html">Budgets</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Crypto Portfolio</h1>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Buy Crypto</h3>
+                <div class="input-group">
+                    <label>Asset</label>
+                    <select id="buyCryptoID" class="form-control" onchange="updateBuyCost()"></select>
+                </div>
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input id="buyQuantity" type="number" class="form-control" placeholder="0.00" oninput="updateBuyCost()">
+                </div>
+                <div class="input-group">
+                    <label>Payment Method</label>
+                    <select id="paymentMode" class="form-control" onchange="toggleBankSelect()">
+                        <option value="Wallet">Wallet Balance</option>
+                        <option value="Bank">Bank Account</option>
+                    </select>
+                </div>
+                <div class="input-group" id="bankSelectGroup" style="display: none;">
+                    <label>Select Bank</label>
+                    <select id="bankAccount" class="form-control"></select>
+                </div>
+                <p style="color: #A3AED0; margin-bottom: 20px;">Total Cost: <br><span id="buyTotalCost" style="color: #4C6FFF;">0.00 INR</span></p>
+                <button class="btn btn-buy" onclick="buyCrypto()">Purchase</button>
+            </div>
+
+            <div class="card">
+                <h3>Sell Crypto</h3>
+                <div class="input-group">
+                    <label>Asset</label>
+                    <select id="sellCryptoID" class="form-control" onchange="updateSellRev()"></select>
+                </div>
+                <div class="input-group">
+                    <label>Quantity</label>
+                    <input id="sellQuantity" type="number" class="form-control" placeholder="0.00" oninput="updateSellRev()">
+                </div>
+                <p style="color: #A3AED0; margin-bottom: 20px;">Est. Revenue: <br><span id="sellTotalRev" style="color: #E63946;">0.00 INR</span></p>
+                <button class="btn btn-sell" onclick="sellCrypto()">Sell</button>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 25px;">
+            <h3>My Crypto Assets</h3>
+            <table id="cryptoTable">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Market Price</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/crypto.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

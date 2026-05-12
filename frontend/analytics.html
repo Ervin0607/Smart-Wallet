@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Analytics</title>
+<link rel="stylesheet" href="css/styles.css">
+<style>
+    /* Analytics specific styles */
+    .net-worth-val { font-size: 2.5em; font-weight: bold; color: #4C6FFF; margin: 10px 0; }
+    .net-worth-breakdown { color: #A3AED0; font-size: 0.9em; display: flex; gap: 20px; flex-wrap: wrap;}
+    .chart-container { position: relative; height: 300px; width: 100%; margin-top: 20px;}
+    .full-width-card { grid-column: 1 / -1; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>SmartWallet</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="transactions.html">Transactions</a>
+        <a href="crypto.html">Crypto</a>
+        <a href="budget.html">Budgets</a>
+        <a href="analytics.html" style="background: #EEF2FF; color: #4C6FFF; font-weight: 600;">Analytics</a>
+        <a href="transfer.html">Transfer</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+
+    <div class="main">
+        <h1>Spending Analytics</h1>
+
+        <div class="cards" style="display: grid; gap: 25px;">
+            
+            <div class="card full-width-card">
+                <h3>Total Net Worth</h3>
+                <div id="netWorthTotal" class="net-worth-val">Loading...</div>
+                <div id="netWorthBreakdown" class="net-worth-breakdown"></div>
+            </div>
+
+            <div class="card">
+                <h3>Category Spending</h3>
+                <div class="chart-container">
+                    <canvas id="spendingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Budget Usage vs Limits</h3>
+                <div class="chart-container">
+                    <canvas id="budgetChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/api.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
